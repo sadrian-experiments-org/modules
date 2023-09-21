@@ -1,3 +1,5 @@
+This is an exmaple of how data structure should be defined
+
 {
     "repos": [
       {
