@@ -1,6 +1,6 @@
 resource "github_repository" "repositories" {
   for_each = {
-    for repo in var.repos :
+    for repo in var.repo_module_vars.repos :
     repo.name => repo
   }
 
@@ -8,16 +8,16 @@ resource "github_repository" "repositories" {
   description = each.value.description
 }
 
-resource "github_team_repository" "team_repos" {
-  for_each = {
-    for map_object in local.repos_ownership_mapping:
-    "${map_object.team}-${map_object.repo}" => map_object
-  }
+# resource "github_team_repository" "team_repos" {
+#   for_each = {
+#     for map_object in local.repos_ownership_mapping:
+#     "${map_object.team}-${map_object.repo}" => map_object
+#   }
 
-  team_id    = var.teams[each.value.team].id
-  repository = each.value.repo
-  permission = each.value.permission
-}
+#   team_id    = var.teams[each.value.team].id
+#   repository = each.value.repo
+#   permission = each.value.permission
+# }
 
 
 # "FE Development Team": {repos: [{repo_name: blabla, permission: blabla},{repo_name: blabla, permission: blabla}] }
