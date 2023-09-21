@@ -1,5 +1,5 @@
 This is an exmaple of how data structure should be defined
-
+```json
 {
     "repos": [
       {
@@ -34,4 +34,5 @@ This is an exmaple of how data structure should be defined
       ]
     }
   }
+```
   
